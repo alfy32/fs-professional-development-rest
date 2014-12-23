@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/controllers.js"></script>
+    <style type="text/css">
+        .delete {
+            color: red;
+            margin-left: 10px;
+        }
+
+        .delete:hover {
+            color: orange;
+        }
+    </style>
+</head>
+<body ng-controller="mainCtrl">
+
+<h1>Alan's Todo List</h1>
+
+<label>Enter something new todo:
+    <input ng-model="newTodo" ng-enter="addTodo()" type="test"/>
+</label>
+<button ng-click="addTodo()">Add</button>
+
+<h3>Todo</h3>
+
+<p ng-hide="todos.todo.length > 0">Nothing to do</p>
+
+<div ng-repeat="todo in todos.todo">
+    <label>
+        <input type="checkbox" ng-click="todoDone(todo)"/>
+        {{todo.todo}}
+    </label>
+    <span class="delete" ng-click="deleteTodo(todo, 'todo')">Delete</span>
+</div>
+
+<h3>Done</h3>
+
+<p ng-hide="todos.done.length > 0">Nothing done</p>
+
+<div ng-repeat="done in todos.done">
+    <label style="text-decoration: line-through;">
+        <input type="checkbox" disabled ng-click="todoDone(done)"/>
+        {{done.todo}}
+    </label>
+    <span class="delete" ng-click="deleteTodo(done, 'done')">Delete</span>
+</div>
+
+</body>
+</html>
