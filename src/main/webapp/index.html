@@ -32,7 +32,7 @@
 <div ng-repeat="todo in todos.todo">
     <label>
         <input type="checkbox" ng-click="todoDone(todo)"/>
-        {{todo.todo}}
+        {{todo.todo}} - {{todo.created}}
     </label>
     <span class="delete" ng-click="deleteTodo(todo, 'todo')">Delete</span>
 </div>
@@ -41,10 +41,10 @@
 
 <p ng-hide="todos.done.length > 0">Nothing done</p>
 
-<div ng-repeat="done in todos.done">
+<div ng-repeat="done in todos.done" title="finished {{done.done}}">
     <label style="text-decoration: line-through;">
         <input type="checkbox" disabled ng-click="todoDone(done)"/>
-        {{done.todo}}
+        {{done.todo}} - {{done.created}}
     </label>
     <span class="delete" ng-click="deleteTodo(done, 'done')">Delete</span>
 </div>
