@@ -1,0 +1,12 @@
+<enunciate label="todo">
+  <webapp mergeWebXML="../main/webapp/WEB-INF/web.xml"/>
+  <modules>
+    <!--TODO change this to be a separate directory-->
+    <!--This is the index page for enunciate docs-->
+    <docs indexPageName="api.html"/>
+  </modules>
+  <services>
+    <!-- This is how to set the base path. Needs to match <servlet-mapping><url-pattern> in web.xml-->
+    <rest defaultRestSubcontext="/api"/>
+  </services>
+</enunciate>
